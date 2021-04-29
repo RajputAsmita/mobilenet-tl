@@ -10,7 +10,7 @@ def load_model():
   model = MobileNetV2()
   return model
 
-st.title("Image  Classifier - 1000 Categories!")
+st.title("Image Classifier - 1000 Categories!")
 upload = st.sidebar.file_uploader(label='Upload the Image')
 if upload is not None:
   file_bytes = np.asarray(bytearray(upload.read()), dtype=np.uint8)
@@ -26,7 +26,7 @@ if upload is not None:
     x = preprocess_input(x)
     y = model.predict(x)
     label = decode_predictions(y)
-    # print the  classification
+    # print the classification
     for i in range(3):
       out = label[0][i]
       st.sidebar.title('%s (%.2f%%)' % (out[1], out[2]*100))
